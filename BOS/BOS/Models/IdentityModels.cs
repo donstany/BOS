@@ -1,6 +1,7 @@
 ﻿using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using BOS.Models_Data;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
@@ -24,6 +25,11 @@ namespace BOS.Models
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
+
+        //public DbSet<Gift> Gifts { get; set; }
+        public DbSet<Employee> Employees { get; set; }
+        public DbSet<Gift> Gifts { get; set; }
+
 
         public static ApplicationDbContext Create()
         {
