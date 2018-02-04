@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace BOS.Models_Data
 {
@@ -10,5 +11,6 @@ namespace BOS.Models_Data
         [Required]
         [Display(Name = "Gift Description")]
         public string Description { get; set; }
+        public ICollection<VotingDetail> VotingDetails { get; set; }
     }
 }

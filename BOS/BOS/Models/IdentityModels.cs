@@ -26,10 +26,10 @@ namespace BOS.Models
         {
         }
 
-        //public DbSet<Gift> Gifts { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Gift> Gifts { get; set; }
-
+        public DbSet<Voting> Votings { get; set; }
+        public DbSet<VotingDetail> VotingDetials { get; set; }
 
         public static ApplicationDbContext Create()
         {

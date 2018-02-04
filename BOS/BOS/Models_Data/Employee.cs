@@ -1,6 +1,8 @@
 ﻿using BOS.Models;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BOS.Models_Data
 {
@@ -25,6 +27,8 @@ namespace BOS.Models_Data
 
         public ApplicationUser AppUser { get; set; }
 
-       // public ICollection<VotingDetail> votingDetails { get; set; }
+        public ICollection<VotingDetail> VotingDetails { get; set; }
+
+        // public ICollection<VotingDetail> votingDetails { get; set; }
     }
 }
