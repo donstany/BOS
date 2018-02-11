@@ -1,0 +1,45 @@
+﻿@model IEnumerable<BOS.Models_Data.Voting>
+
+@{
+  ViewBag.Title = "End Voting";
+}
+
+<h2>End Voting</h2>
+<h4>Important! Only Employee which "Create vote" could finish voting</h4>
+
+<table class="table table-bordered table-responsive table-striped table-hover">
+  <tr>
+    <th>
+      @Html.DisplayNameFor(model => model.CandidateForGift.Email)
+    </th>
+    <th>
+      @Html.DisplayNameFor(model => model.CandidateForGift.FullName)
+    </th>
+    <th>
+      @Html.DisplayNameFor(model => model.CandidateForGift.BirthDate)
+    </th>
+    <th>
+      <img style="width:35px" src="~/Content/favicon/End.png" />
+    </th>
+  </tr>
+
+  @foreach (var item in Model)
+  {
+    <tr>
+      <td>
+        @Html.DisplayFor(modelItem => item.CandidateForGift.Email)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.CandidateForGift.FullName)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.CandidateForGift.BirthDate)
+      </td>
+      <td>
+        @Html.ActionLink("End Voting", "EndVoting", new { id = item.VotingId })
+
+      </td>
+    </tr>
+  }
+
+</table>

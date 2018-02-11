@@ -1,0 +1,37 @@
+﻿@model IEnumerable<BOS.Models_Data.Gift>
+
+@{
+  var fullName = Session["FullName"]?.ToString();
+  ViewBag.Title = $"Choose Gift for {fullName}";
+}
+
+<h2>Choose Present for @fullName </h2>
+
+<table class="table table-bordered table-responsive table-striped table-hover">
+  <tr>
+    <th>
+      <img style="width:35px" src="~/Content/favicon/gift.png" />
+      @Html.DisplayNameFor(model => model.Description)
+    </th>
+
+    <th></th>
+  </tr>
+
+  @foreach (var item in Model)
+  {
+    <tr>
+      <td>
+        @Html.DisplayFor(modelItem => item.Description)
+      </td>
+      <td>
+        @Html.ActionLink("Give that present!", "CompleteProcessVoting", new { id = item.GiftId }
+                                            , new
+                                            {
+                                              onClick = "return confirm('Are you sure you want to give this gift - " +
+                                                          @item.Description + " ?')"
+                                            })
+
+      </td>
+    </tr>
+  }
+</table>

@@ -1,0 +1,50 @@
+﻿@model IEnumerable<BOS.Models.ApplicationUser>
+@{
+  ViewBag.Title = "Create voting";
+}
+
+<h2>Candidate for opening voting!</h2>
+<h4>Employees which have birthday regarding rules.</h4>
+
+
+<table class="table table-bordered table-responsive table-striped table-hover">
+  <tr>
+    <th>
+      @Html.DisplayNameFor(model => model.Email)
+    </th>
+    <th>
+      @Html.DisplayNameFor(model => model.FullName)
+    </th>
+    <th>
+      @Html.DisplayNameFor(model => model.BirthDate)
+    </th>
+    <th>
+      <img style="width:35px" src="~/Content/favicon/birthday.png" />
+    </th>
+  </tr>
+
+  @foreach (var item in Model)
+  {
+    <tr>
+      <td>
+        @Html.DisplayFor(modelItem => item.Email)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.FullName)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.BirthDate)
+      </td>
+      <td>
+        @*TODO - use JS library for notification*@
+        @Html.ActionLink("Activate", "Activate", new { id = item.Id } ,
+                          new
+                          {
+                            onClick = "return confirm('Are you sure, you want to Create Voting for this colleague -  " +
+                                @item.FullName + " ?')"
+                          })
+      </td>
+    </tr>
+  }
+
+</table>

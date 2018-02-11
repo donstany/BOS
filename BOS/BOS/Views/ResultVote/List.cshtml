@@ -1,0 +1,67 @@
+﻿@model IEnumerable<BOS.Models_View.VotedResultViewModel>
+
+@{
+  ViewBag.Title = "Results from Voting";
+  string hasVoted = "Yes";
+}
+
+<h2>End Voting</h2>
+<h4>Results from all voting!</h4>
+
+<table class="table table-bordered table-responsive table-striped table-hover">
+  <tr>
+    <th>
+      @Html.DisplayNameFor(model => model.NameOfEmployeeWithBd)
+    </th>
+    <th>
+      @Html.DisplayNameFor(model => model.EmailOfEmployeeWithBd)
+    </th>
+    <th>
+      @Html.DisplayNameFor(model => model.YearOfActivationVote)
+    </th>
+    <th>
+      @Html.DisplayNameFor(model => model.NameOfVoter)
+    </th>
+    <th>
+      @Html.DisplayNameFor(model => model.EmailOfVoter)
+    </th>
+    <th>
+      @Html.DisplayNameFor(model => model.GiftDescription)
+    </th>
+    <th>
+      Has Voted?
+    </th>
+  </tr>
+
+  @foreach (var item in Model)
+  {
+    if (string.IsNullOrEmpty(item.NameOfEmployeeWithBd))
+    {
+      hasVoted = "No";
+    }
+  <tr>
+    <td>
+      @Html.DisplayFor(modelItem => item.NameOfEmployeeWithBd)
+    </td>
+    <td>
+      @Html.DisplayFor(modelItem => item.EmailOfEmployeeWithBd)
+    </td>
+    <td>
+      @Html.DisplayFor(modelItem => item.YearOfActivationVote)
+    </td>
+    <td>
+      @Html.DisplayFor(modelItem => item.NameOfVoter)
+    </td>
+    <td>
+      @Html.DisplayFor(modelItem => item.EmailOfVoter)
+    </td>
+    <td>
+      @Html.DisplayFor(modelItem => item.GiftDescription)
+    </td>
+    <td>
+      @hasVoted
+    </td>
+  </tr>
+  }
+
+</table>
