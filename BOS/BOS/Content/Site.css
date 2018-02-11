@@ -22,3 +22,7 @@ select,
 textarea {
     max-width: 280px;
 }
+
+#ui-datepicker-div {
+    background-color: #ecf0f1;
+}

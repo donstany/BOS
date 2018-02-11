@@ -1,4 +1,4 @@
-namespace BOS.Migrations
+﻿namespace BOS.Migrations
 {
     using System;
     using System.Data.Entity;
@@ -27,6 +27,14 @@ namespace BOS.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+            context.Gifts.AddOrUpdate(x => x.GiftId,
+                    new Models_Data.Gift() { GiftId = 1, Description = "Екскурзия за двама до Барселона" },
+                    new Models_Data.Gift() { GiftId = 2, Description = "Спа уикенд във Велинград" },
+                    new Models_Data.Gift() { GiftId = 3, Description = "Комплект луксозни писалки" },
+                    new Models_Data.Gift() { GiftId = 4, Description = "Ваучер за екстремно изживяване на клуб - Адреналин" }
+        );
+
         }
     }
 }
